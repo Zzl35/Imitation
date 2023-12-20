@@ -1,0 +1,36 @@
+import argparse
+    
+parser = argparse.ArgumentParser()
+parser.add_argument('--env_id', help='environment ID', default='Hopper-v2')
+parser.add_argument('--remark', help='remark str', type=str, default='None')
+parser.add_argument('--seed', help='RNG seed', type=int, default=42)
+parser.add_argument('--algo', type=str, default='dac')
+parser.add_argument('--use_gpu', type=bool, default=True)
+parser.add_argument('--subsampling_num', help='Number of Traj', type=int, default=1)
+parser.add_argument('--subsampling_rate', type=int, default=1)
+parser.add_argument('--use_absorb', type=bool, default=True)
+parser.add_argument('--truncated_len', type=int, default=1000)
+parser.add_argument('--num_epoch', type=int, default=200000)
+parser.add_argument('--random_epoch', type=int, default=2000)
+parser.add_argument('--start_epoch', type=int, default=1000)
+parser.add_argument('--discriminator_lr', type=float, default=1e-3)
+parser.add_argument('--critic_lr', type=float, default=1e-3)
+parser.add_argument('--actor_lr', type=float, default=1e-4)
+parser.add_argument('--alpha_lr', type=float, default=1e-3)
+parser.add_argument('--ensemble_num', type=int, default=2)
+parser.add_argument('--lamda', type=float, default=10)
+parser.add_argument('--double_critic', type=bool, default=True)
+parser.add_argument('--init_temp', type=float, default=1.)
+parser.add_argument('--learn_temp', type=bool, default=True)
+parser.add_argument('--absorbing_per_episode', type=int, default=10)
+parser.add_argument('--update_per_step', type=int, default=1)
+parser.add_argument('--log_interval', type=int, default=1000)
+parser.add_argument('--batch_size', type=int, default=256)
+parser.add_argument('--expert_dir', type=str, default='experts/')
+parser.add_argument('--log_dir', type=str, default='logs/')
+parser.add_argument('--save_dir', type=str, default='model/')
+
+args = parser.parse_args()
+args.demo = args.env_id + '_25.pkl'
+args.absorbing_per_episode = 0 if not args.use_absorb else args.absorbing_per_episode    
+

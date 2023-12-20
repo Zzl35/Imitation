@@ -1,0 +1,15 @@
+ale-py==0.7.3
+atari-py==0.2.9
+box2d-py==2.3.5
+gym==0.19.0
+h5py==3.6.0
+matplotlib==3.5.1
+# mujoco-py==1.50.1.68
+numpy==1.21.4
+tensorboard==2.7.0
+tensorboard-data-server==0.6.1
+tensorboard-plugin-wit==1.8.0
+torch==1.10.0
+torchaudio==0.10.0
+torchvision==0.11.1
+tqdm==4.62.3
